@@ -2,28 +2,33 @@
 #include <RF24Network.h>
 #include <SPI.h>
 
-RF24 radio24(7,8);
-RF24Network network(radio24);
+/** nRF24L01(+) radio attached to SPI and pins 7,8 */
+  RF24 radio24(7,8);
+/** Network uses that radio */
+  RF24Network network(radio24);
 
 /** RF24 IDs */
-const uint16_t pirNodeId = 01;
-const uint16_t serverNodeId = 00;
+  const uint16_t pirNodeId = 01;
+  const uint16_t serverNodeId = 00;
+  
+/** RF24 send scruct */
+  struct payloadRF24Msg 
+  {
+    unsigned int sensorValue;
+  };
+
 
 /** Analog input pin that the PIR is attached too */
-const int pirDigitalPIN = 4; 
+  const int pirDigitalPIN = 4; 
  
 /** Value read from the pir values = HIRH/LOW */
-int pirSensorValue = 0;  
+  int pirSensorValue = 0;  
 
 /** Bool for discriminate whether high value was sended */ 
-bool highValueWasSended = false;
+  bool highValueWasSended = false;
 
-/** RF24 send scruct */
-struct payloadRF24Msg 
-{
-  unsigned int sensorValue;
-};
 
+/** The setup function runs once when you press reset or power the board */
 void setup() 
 {
   /** Initialize serial communications at 9600 bps */
@@ -36,6 +41,7 @@ void setup()
   network.begin(90, pirNodeId);
 }
 
+/** The loop function runs over and over again forever */
 void loop() 
 {
   /** Update network state every loop */

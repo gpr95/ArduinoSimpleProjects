@@ -14,3 +14,12 @@ struct payloadRF24Msg
 3. Print sending value on serial bus
 ### Connections
 ![Alt text](pir_arduinoMiniPro_rf24/connections.png?raw=true "Connections")
+
+## Simple server receiving on radio and sending through ethernet (ethernet_arduinoUno_rf24_center)
+### Functionality
+0. Begin communication at 9600 bps
+1. If someone send 1/0 turn on relay1/2 
+2. Send received message through ehternet
+
+### Connections
+![Alt text](ethernet_arduinoUno_rf24_center/connections.png?raw=true "Connections")
