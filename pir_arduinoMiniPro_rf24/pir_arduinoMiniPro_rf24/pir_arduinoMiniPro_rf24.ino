@@ -55,20 +55,21 @@ void sendValueThroughRF24(unsigned int val)
     return;
   if(val == 0 && !highValueWasSended)
     return;
-  Serial.println("SENDING : %d", val);
+  Serial.print("SENDING :");
+  Serial.println(val);
   RF24NetworkHeader header(serverNodeId);
   payloadRF24Msg payload = {val};
   bool ok = network.write(header, &payload, sizeof(payload));
-  if(ok) {
-    Serial.println(" ok. Sended");
-    if(val == 1) {
+  if(ok) 
+  {
+    Serial.println(" SENDED.");
+    if(val == 1)
       highValueWasSended = true;
-    }
-    else {
+    else 
       highValueWasSended = false;
-    }
   }
-  else {
+  else 
+  {
     Serial.println(" FAILED.");
   }
 }
