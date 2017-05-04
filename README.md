@@ -1,6 +1,6 @@
-# ArduinoSimpleProjects
-Smark Home
-## PIR With Arduino Mini Pro and RF24
+# Smart Home
+Student project - subjects Mobile And Context Services
+## Simple motion detector send valuue through radio (pir_arduinoMiniPro_rf24)
 ### Functionality
 0. Begin communication at 9600 bps
 1. Every loop read pir output value
